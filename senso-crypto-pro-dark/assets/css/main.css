@@ -1,0 +1,898 @@
+/* 
+ * Senso Crypto Pro - Modern Web3 Dark Design
+ * With Glassmorphism, Neon Effects & Cyberpunk Aesthetics
+ */
+
+/* ===============================================
+   VARIABLES - DARK WEB3 COLOR SCHEME
+   =============================================== */
+:root {
+    /* Dark Background Colors */
+    --scp-bg-primary: #0f172a;
+    --scp-bg-secondary: #1e293b;
+    --scp-bg-tertiary: #334155;
+    
+    /* Neon Colors */
+    --scp-cyan: #06b6d4;
+    --scp-cyan-glow: rgba(6, 182, 212, 0.5);
+    --scp-purple: #a855f7;
+    --scp-purple-glow: rgba(168, 85, 247, 0.5);
+    --scp-pink: #ec4899;
+    
+    /* Status Colors */
+    --scp-success: #10b981;
+    --scp-danger: #ef4444;
+    --scp-warning: #f59e0b;
+    
+    /* Text Colors */
+    --scp-text-primary: #f1f5f9;
+    --scp-text-secondary: #94a3b8;
+    --scp-text-muted: #64748b;
+    
+    /* Glass Effect */
+    --scp-glass-bg: rgba(30, 41, 59, 0.6);
+    --scp-glass-border: rgba(148, 163, 184, 0.1);
+    
+    /* Shadows & Glows */
+    --scp-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --scp-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --scp-glow-cyan: 0 0 20px var(--scp-cyan-glow);
+    --scp-glow-purple: 0 0 20px var(--scp-purple-glow);
+    
+    /* Gradients */
+    --scp-gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    --scp-gradient-purple: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+    --scp-gradient-mixed: linear-gradient(135deg, #06b6d4 0%, #a855f7 100%);
+    --scp-gradient-border: linear-gradient(135deg, var(--scp-cyan) 0%, var(--scp-purple) 100%);
+}
+
+/* ===============================================
+   GLOBAL RESET & BASE STYLES
+   =============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--scp-bg-primary);
+    color: var(--scp-text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===============================================
+   GLASSMORPHISM CARDS
+   =============================================== */
+.scp-glass-card {
+    background: var(--scp-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--scp-glass-border);
+    border-radius: 20px;
+    box-shadow: var(--scp-shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.scp-glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--scp-gradient-border);
+    opacity: 0.5;
+}
+
+/* ===============================================
+   DASHBOARD LAYOUT
+   =============================================== */
+.scp-dashboard {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.scp-dashboard-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.scp-dashboard-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--scp-gradient-mixed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--scp-glow-cyan);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.scp-dashboard-subtitle {
+    font-size: 1.125rem;
+    color: var(--scp-text-secondary);
+    font-weight: 300;
+}
+
+/* ===============================================
+   STATS GRID - NEON CARDS
+   =============================================== */
+.scp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.scp-stat-card {
+    background: var(--scp-glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Animated Border Gradient */
+.scp-stat-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: var(--scp-gradient-border);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.scp-stat-card:hover::before {
+    opacity: 1;
+}
+
+.scp-stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 40px var(--scp-cyan-glow);
+}
+
+/* Neon Glow Effect on Hover */
+.scp-stat-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--scp-cyan-glow) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.scp-stat-card:hover::after {
+    opacity: 0.3;
+}
+
+.scp-stat-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--scp-gradient-cyan);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    box-shadow: var(--scp-glow-cyan);
+    animation: float 3s ease-in-out infinite;
+}
+
+.scp-stat-content h3 {
+    font-size: 0.875rem;
+    color: var(--scp-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.scp-stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--scp-text-primary);
+    margin-bottom: 0.5rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.scp-stat-value.positive {
+    color: var(--scp-success);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.scp-stat-value.negative {
+    color: var(--scp-danger);
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.scp-stat-change {
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+}
+
+.scp-stat-change.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--scp-success);
+}
+
+.scp-stat-change.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--scp-danger);
+}
+
+/* ===============================================
+   SECTION STYLES
+   =============================================== */
+.scp-dashboard-section {
+    background: var(--scp-glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--scp-glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.scp-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--scp-glass-border);
+}
+
+.scp-section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--scp-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Neon Text Effect */
+.scp-neon-text {
+    color: var(--scp-cyan);
+    text-shadow: 
+        0 0 10px var(--scp-cyan-glow),
+        0 0 20px var(--scp-cyan-glow),
+        0 0 30px var(--scp-cyan-glow);
+}
+
+/* ===============================================
+   BUTTONS - CYBERPUNK STYLE
+   =============================================== */
+.scp-btn {
+    padding: 0.875rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.scp-btn-primary {
+    background: var(--scp-gradient-cyan);
+    color: white;
+    box-shadow: 0 4px 15px var(--scp-cyan-glow);
+}
+
+.scp-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.scp-btn-primary:hover::before {
+    left: 100%;
+}
+
+.scp-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--scp-cyan-glow);
+}
+
+.scp-btn-secondary {
+    background: transparent;
+    color: var(--scp-cyan);
+    border: 2px solid var(--scp-cyan);
+    box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+.scp-btn-secondary:hover {
+    background: var(--scp-cyan);
+    color: var(--scp-bg-primary);
+    box-shadow: 0 0 30px var(--scp-cyan-glow);
+}
+
+/* ===============================================
+   PORTFOLIO GRID
+   =============================================== */
+.scp-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+}
+
+.scp-portfolio-item {
+    background: var(--scp-glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid var(--scp-glass-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Glow Effect */
+.scp-portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.scp-portfolio-item:hover::before {
+    left: 100%;
+}
+
+.scp-portfolio-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--scp-cyan);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px var(--scp-cyan-glow);
+}
+
+.scp-portfolio-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.scp-crypto-icon {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--scp-gradient-mixed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Space Mono', monospace;
+}
+
+.scp-exchange-badge {
+    background: var(--scp-gradient-cyan);
+    color: white;
+    padding: 0.375rem 1rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--scp-glow-cyan);
+}
+
+.scp-portfolio-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.scp-portfolio-row:last-child {
+    border-bottom: none;
+}
+
+.scp-label {
+    color: var(--scp-text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.scp-value {
+    font-weight: 700;
+    color: var(--scp-text-primary);
+    font-family: 'Space Mono', monospace;
+}
+
+.scp-value.positive {
+    color: var(--scp-success);
+}
+
+.scp-value.negative {
+    color: var(--scp-danger);
+}
+
+/* ===============================================
+   CHART CONTAINER
+   =============================================== */
+.scp-chart-container {
+    height: 400px;
+    position: relative;
+    padding: 1rem;
+}
+
+.scp-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.scp-chart-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.scp-chart-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--scp-text-secondary);
+    border: 1px solid var(--scp-glass-border);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scp-chart-btn:hover {
+    color: var(--scp-cyan);
+    border-color: var(--scp-cyan);
+    box-shadow: 0 0 15px var(--scp-cyan-glow);
+}
+
+.scp-chart-btn.active {
+    background: var(--scp-gradient-cyan);
+    color: white;
+    border-color: var(--scp-cyan);
+    box-shadow: var(--scp-glow-cyan);
+}
+
+/* ===============================================
+   MODAL - DARK GLASS STYLE
+   =============================================== */
+.scp-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.scp-modal-content {
+    background: var(--scp-bg-secondary);
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 0 50px var(--scp-cyan-glow);
+    border: 1px solid var(--scp-glass-border);
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scp-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 1px solid var(--scp-glass-border);
+}
+
+.scp-modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--scp-cyan);
+    margin: 0;
+}
+
+.scp-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--scp-text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.scp-modal-close:hover {
+    color: var(--scp-danger);
+    background: rgba(239, 68, 68, 0.1);
+    transform: rotate(90deg);
+}
+
+/* ===============================================
+   FORM STYLES
+   =============================================== */
+.scp-form-group {
+    padding: 0 2rem 1.5rem 2rem;
+}
+
+.scp-form-group:last-child {
+    padding-bottom: 2rem;
+}
+
+.scp-form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--scp-text-primary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scp-form-group input,
+.scp-form-group select,
+.scp-form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--scp-bg-primary);
+    border: 2px solid var(--scp-glass-border);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--scp-text-primary);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.scp-form-group input:focus,
+.scp-form-group select:focus,
+.scp-form-group textarea:focus {
+    outline: none;
+    border-color: var(--scp-cyan);
+    box-shadow: 0 0 20px var(--scp-cyan-glow);
+    background: rgba(6, 182, 212, 0.05);
+}
+
+.scp-form-group input::placeholder {
+    color: var(--scp-text-muted);
+}
+
+/* ===============================================
+   LOADING STATES
+   =============================================== */
+.scp-loading {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(6, 182, 212, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--scp-cyan);
+    animation: spin 0.8s linear infinite;
+}
+
+/* ===============================================
+   ANIMATIONS
+   =============================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px var(--scp-cyan-glow);
+    }
+    50% {
+        box-shadow: 0 0 40px var(--scp-cyan-glow), 0 0 60px var(--scp-cyan-glow);
+    }
+}
+
+/* ===============================================
+   UTILITY CLASSES
+   =============================================== */
+.scp-fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.scp-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===============================================
+   SCROLLBAR STYLING
+   =============================================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scp-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scp-gradient-cyan);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scp-cyan);
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 768px) {
+    .scp-dashboard {
+        padding: 1rem;
+    }
+    
+    .scp-dashboard-header h1 {
+        font-size: 2rem;
+    }
+    
+    .scp-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .scp-portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scp-section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .scp-chart-container {
+        height: 300px;
+    }
+}
+
+/* ===============================================
+   CRYPTO WIDGET STYLES
+   =============================================== */
+.scp-crypto-price-widget {
+    background: var(--scp-glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--scp-glass-border);
+    display: inline-block;
+}
+
+.scp-crypto-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.scp-crypto-symbol {
+    font-size: 0.875rem;
+    color: var(--scp-text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scp-crypto-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--scp-text-primary);
+    font-family: 'Space Mono', monospace;
+}
+
+.scp-crypto-change {
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* ===============================================
+   EMPTY STATE
+   =============================================== */
+.scp-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--scp-text-secondary);
+}
+
+.scp-empty-state p {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* ===============================================
+   ICON BUTTONS
+   =============================================== */
+.scp-icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.scp-icon-btn:hover {
+    background: rgba(6, 182, 212, 0.1);
+    transform: scale(1.2);
+}
+
+/* ===============================================
+   NOTIFICATION STYLES
+   =============================================== */
+.scp-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--scp-bg-secondary);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px var(--scp-cyan-glow);
+    border: 1px solid var(--scp-cyan);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scp-notification.scp-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scp-notification-success {
+    border-color: var(--scp-success);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(16, 185, 129, 0.5);
+}
+
+.scp-notification-error {
+    border-color: var(--scp-danger);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(239, 68, 68, 0.5);
+}

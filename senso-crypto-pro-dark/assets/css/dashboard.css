@@ -1,0 +1,267 @@
+/* Dashboard Additional Styles */
+
+.scp-dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Enhanced Portfolio Item */
+.scp-portfolio-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.scp-portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--scp-gradient-alt);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.scp-portfolio-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* Enhanced Stats */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.scp-stat-card.scp-loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Chart Styles */
+.scp-chart-container canvas {
+    max-height: 400px;
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+    .scp-portfolio-row {
+        font-size: 0.875rem;
+    }
+}
+
+/* Loading Skeleton */
+.scp-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Enhanced Buttons */
+.scp-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.scp-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.scp-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Status Badges */
+.scp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.scp-status-badge.online {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.scp-status-badge.offline {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Progress Bar */
+.scp-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.scp-progress-bar-fill {
+    height: 100%;
+    background: var(--scp-gradient-alt);
+    transition: width 0.6s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.scp-progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Card Hover Effects */
+.scp-card-hover {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.scp-card-hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.scp-card-hover:hover::after {
+    opacity: 1;
+}
+
+/* Glassmorphism Effect */
+.scp-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Text */
+.scp-gradient-text {
+    background: var(--scp-gradient-alt);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.scp-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Coin Icons */
+.scp-coin-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--scp-gradient-alt);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+/* Tag Cloud */
+.scp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.scp-tag {
+    padding: 0.25rem 0.75rem;
+    background: #f1f5f9;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.scp-tag:hover {
+    background: var(--scp-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Empty State Enhanced */
+.scp-empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.scp-empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.scp-empty-state-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--scp-dark);
+}
+
+.scp-empty-state-description {
+    color: #64748b;
+    margin-bottom: 2rem;
+}

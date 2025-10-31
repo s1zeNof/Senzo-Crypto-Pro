@@ -1,0 +1,210 @@
+/* Admin Panel Styles */
+
+.scp-admin-wrap {
+    background: #f8fafc;
+    margin-left: -20px;
+    padding: 2rem;
+}
+
+.scp-admin-wrap h1 {
+    color: #1e293b;
+    margin-bottom: 2rem;
+}
+
+.scp-admin-dashboard {
+    max-width: 1400px;
+}
+
+.scp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.scp-stat-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.scp-stat-card h3 {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.scp-stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #8b5cf6;
+    margin: 0;
+}
+
+.scp-admin-info {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.scp-admin-info h2 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.scp-admin-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.scp-admin-info li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.scp-admin-info li:last-child {
+    border-bottom: none;
+}
+
+.scp-admin-info code {
+    background: #f1f5f9;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    color: #8b5cf6;
+}
+
+/* Settings Form */
+.scp-settings-form {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.scp-form-section {
+    margin-bottom: 2rem;
+}
+
+.scp-form-section h3 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.scp-form-row {
+    margin-bottom: 1.5rem;
+}
+
+.scp-form-row label {
+    display: block;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.scp-form-row input[type="text"],
+.scp-form-row input[type="number"],
+.scp-form-row select,
+.scp-form-row textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.scp-form-row input:focus,
+.scp-form-row select:focus,
+.scp-form-row textarea:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.scp-form-help {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* Admin Buttons */
+.scp-admin-btn {
+    background: #8b5cf6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.scp-admin-btn:hover {
+    background: #7c3aed;
+    transform: translateY(-2px);
+}
+
+/* Admin Tables */
+.scp-admin-table {
+    width: 100%;
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.scp-admin-table thead {
+    background: #f8fafc;
+}
+
+.scp-admin-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #1e293b;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.scp-admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.scp-admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Status Indicators */
+.scp-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.scp-status.active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.scp-status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.scp-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
